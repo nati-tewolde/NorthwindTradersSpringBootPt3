@@ -33,19 +33,19 @@ public class NorthwindTradersSpringBootApplicationCommandLine implements Command
 
             switch (choice) {
                 case 1:
-                    listProducts(productService);
+                    listProducts();
                     break;
                 case 2:
-                    addProduct(scanner, productService);
+                    addProduct(scanner);
                     break;
                 case 3:
-                    updateProduct(scanner, productService);
+                    updateProduct(scanner);
                     break;
                 case 4:
-                    deleteProduct(scanner, productService);
+                    deleteProduct(scanner);
                     break;
                 case 5:
-                    searchProduct(scanner, productService);
+                    searchProduct(scanner);
                     break;
                 case 0:
                     System.out.println("Exiting...");
@@ -58,7 +58,7 @@ public class NorthwindTradersSpringBootApplicationCommandLine implements Command
         scanner.close();
     }
 
-    private static void listProducts(ProductService productService) {
+    private void listProducts() {
         System.out.println("========== List of Products ==========");
         List<Product> products = productService.getAllProducts();
         for (Product product : products) {
@@ -67,7 +67,7 @@ public class NorthwindTradersSpringBootApplicationCommandLine implements Command
         System.out.println();
     }
 
-    private static void addProduct(Scanner scanner, ProductService productService) {
+    private void addProduct(Scanner scanner) {
         System.out.print("Enter product name: ");
         String name = scanner.nextLine();
         System.out.print("Enter product category ID: ");
@@ -84,7 +84,7 @@ public class NorthwindTradersSpringBootApplicationCommandLine implements Command
         System.out.println();
     }
 
-    private static void updateProduct(Scanner scanner, ProductService productService) {
+    private void updateProduct(Scanner scanner) {
         System.out.print("Enter the product ID to update: ");
         int productId = scanner.nextInt();
         scanner.nextLine(); // Consume the newline character
@@ -109,7 +109,7 @@ public class NorthwindTradersSpringBootApplicationCommandLine implements Command
         System.out.println("Product updated successfully.\n");
     }
 
-    private static void deleteProduct(Scanner scanner, ProductService productService) {
+    private void deleteProduct(Scanner scanner) {
         System.out.print("Enter the product ID to delete: ");
         int productId = scanner.nextInt();
         scanner.nextLine(); // Consume the newline character
@@ -125,7 +125,7 @@ public class NorthwindTradersSpringBootApplicationCommandLine implements Command
         System.out.println("Product deleted successfully.\n");
     }
 
-    private static void searchProduct(Scanner scanner, ProductService productService) {
+    private void searchProduct(Scanner scanner) {
         System.out.print("Enter the product ID to search: ");
         int productId = scanner.nextInt();
         scanner.nextLine(); // Consume the newline character
